@@ -54,10 +54,11 @@ saveSchedule.on("click", function() {
 
 clearSchedule.on("click", function() {
 
-    var storeHour = $(this).siblings(".hour").text();
-    var storeEvent = $(this).siblings(".event").val();
+    $(".hour").each(function() {
+        $(this).siblings(".event").val("");
+    });
 
-    localStorage.setItem(storeHour, storeEvent);
+    localStorage.clear();
 });
 
 function getEvents() {
