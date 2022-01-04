@@ -15,9 +15,16 @@
 // THEN the saved events persist
 
 function update() {
-    $("#currentDay").html(moment().format("ddd MMM Do, YYYY, hh:mm:ss"))
+    $("#currentDay").html(moment().format("ddd MMM Do, YYYY, hh:mm:ss A"))
 }
 
 setInterval(update, 1000);
 
+function updateHour() {
+    var hour = moment().hours();
+    console.log(hour)
+
+}
+
+updateHour();
 
