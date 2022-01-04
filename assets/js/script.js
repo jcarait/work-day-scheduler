@@ -1,23 +1,7 @@
-
-
-// acceptance criteria for reference
-// GIVEN I am using a daily planner to create a schedule
-// WHEN I open the planner
-// THEN the current day is displayed at the top of the calendar
-// WHEN I scroll down
-// THEN I am presented with timeblocks for standard business hours
-// WHEN I view the timeblocks for that day
-// THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-// WHEN I click into a timeblock
-// THEN I can enter an event
-// WHEN I click the save button for that timeblock
-// THEN the text for that event is saved in local storage
-// WHEN I refresh the page
-// THEN the saved events persist
-
 var saveSchedule = $(".save-btn");
 var clearSchedule = $(".clear-btn");
 
+//display current time and date
 function update() {
     $("#currentDay").html(moment().format("ddd MMM Do, YYYY, hh:mm:ss A"))
 }
@@ -44,6 +28,7 @@ function updateHour() {
     });
 }
 
+//save key and text area to local storage
 saveSchedule.on("click", function() {
 
     var storeHour = $(this).siblings(".hour").text();
@@ -52,6 +37,7 @@ saveSchedule.on("click", function() {
     localStorage.setItem(storeHour, storeEvent);
 });
 
+// clear schedule button
 clearSchedule.on("click", function() {
 
     $(".hour").each(function() {
@@ -61,6 +47,7 @@ clearSchedule.on("click", function() {
     localStorage.clear();
 });
 
+//obtains data from local storage and displays on scheduler
 function getEvents() {
 
     $(".hour").each(function() {
@@ -72,10 +59,6 @@ function getEvents() {
         }
     });
 }
-
-
-
-
 
 updateHour();
 getEvents();
