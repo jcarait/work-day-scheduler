@@ -14,5 +14,10 @@
 // WHEN I refresh the page
 // THEN the saved events persist
 
-var currentTimeAndDate = moment().format("ddd MMM Do, YYYY");
-$("#currentDay").html(currentTimeAndDate);
+function update() {
+    $("#currentDay").html(moment().format("ddd MMM Do, YYYY, hh:mm:ss"))
+}
+
+setInterval(update, 1000);
+
+
