@@ -34,3 +34,7 @@ THEN the saved events persist
 - Enter event or task in blank box which can be saved
 - When refreshed, the page will continue to display any saved events or tasks
 - Hour blocks in the past are grey :notebook: current in red :closed_book: future in green :green_book:
+
+## Demo
+
+![A user clicks on blank text area on colour-coded calendar and tests the functionality of the scheduler](./assets/images/work-day-scheduler.gif)
