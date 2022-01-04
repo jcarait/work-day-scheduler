@@ -1,5 +1,6 @@
-// acceptance criteria for reference
 
+
+// acceptance criteria for reference
 // GIVEN I am using a daily planner to create a schedule
 // WHEN I open the planner
 // THEN the current day is displayed at the top of the calendar
@@ -13,6 +14,8 @@
 // THEN the text for that event is saved in local storage
 // WHEN I refresh the page
 // THEN the saved events persist
+
+var save = $(".save-btn");
 
 function update() {
     $("#currentDay").html(moment().format("ddd MMM Do, YYYY, hh:mm:ss A"))
@@ -36,10 +39,17 @@ function updateHour() {
             $(this).addClass("past");
         }
     });
-
-
-
 }
+
+save.on("click", function() {
+
+    var storeHour = $(this).siblings(".hour").text();
+    var storeEvent = $(this).siblings(".event").val();
+
+    localStorage.setItem(time, plan);
+});
+
+
 
 updateHour();
 setInterval(updateHour, 60000);
