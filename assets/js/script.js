@@ -15,7 +15,8 @@
 // WHEN I refresh the page
 // THEN the saved events persist
 
-var save = $(".save-btn");
+var saveSchedule = $(".save-btn");
+var clearSchedule = $(".clear-btn");
 
 function update() {
     $("#currentDay").html(moment().format("ddd MMM Do, YYYY, hh:mm:ss A"))
@@ -43,7 +44,15 @@ function updateHour() {
     });
 }
 
-save.on("click", function() {
+saveSchedule.on("click", function() {
+
+    var storeHour = $(this).siblings(".hour").text();
+    var storeEvent = $(this).siblings(".event").val();
+
+    localStorage.setItem(storeHour, storeEvent);
+});
+
+clearSchedule.on("click", function() {
 
     var storeHour = $(this).siblings(".hour").text();
     var storeEvent = $(this).siblings(".event").val();
@@ -62,6 +71,8 @@ function getEvents() {
         }
     });
 }
+
+
 
 
 
