@@ -24,7 +24,23 @@ function updateHour() {
     var hour = moment().hours();
     console.log(hour)
 
+    $(".hour-block").each(function() {
+
+        var currentHour = parseInt($(this).attr("id"));
+
+        if ( currentHour === hour) {
+            $(this).addClass("present");
+        } else if (currentHour > hour) {
+            $(this).addClass("future");
+        } else {
+            $(this).addClass("past");
+        }
+    });
+
+
+
 }
 
 updateHour();
+setInterval(updateHour, 60000);
 
