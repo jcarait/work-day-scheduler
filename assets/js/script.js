@@ -23,6 +23,8 @@ function update() {
 
 setInterval(update, 1000);
 
+
+// updates id with past, present or future -- css is pre-setup to display relevant colours
 function updateHour() {
     var hour = moment().hours();
     console.log(hour)
@@ -46,11 +48,24 @@ save.on("click", function() {
     var storeHour = $(this).siblings(".hour").text();
     var storeEvent = $(this).siblings(".event").val();
 
-    localStorage.setItem(time, plan);
+    localStorage.setItem(storeHour, storeEvent);
 });
+
+function getEvents() {
+
+    $(".hour").each(function() {
+        var currentHour = $(this).text();
+        var currentEvent = localStorage.getItem(currentHour);
+
+        if (currentEvent !== null) {
+            $(this).siblings(".event").val(currentEvent);
+        }
+    });
+}
 
 
 
 updateHour();
+getEvents();
 setInterval(updateHour, 60000);
 
