@@ -63,4 +63,3 @@ function getEvents() {
 updateHour();
 getEvents();
 setInterval(updateHour, 60000);
-
