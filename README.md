@@ -4,7 +4,7 @@ In Week 05 of the coding bootcamp by University of Sydney and Trilogy of educati
 
 ---
 
-![Github deployed application](https://jcarait.github.io/work-day-scheduler/)
+[Github deployed application](https://jcarait.github.io/work-day-scheduler/)
 
 ## User Story
 
